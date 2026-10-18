@@ -1,0 +1,54 @@
+@page
+@model StudentManagementSystem.Pages.Students.IndexModel
+
+@{
+	ViewData["Title"] = "Students";
+}
+
+<div class="container mt-5">
+	<h1>Student List</h1>
+	<p>
+		<a href="/Students/Create">Register New Student</a>
+	</p>
+
+	<p>Here are the students registered in our system.</p>
+
+	<hr/>
+
+	@if (Model.Students.Count == 0)
+	{
+		<p>No students have been registered yet.</p>
+	}
+	else
+	{
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Full Name</th>
+					<th>Email</th>
+					<th>Age</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@foreach (StudentManagementSystem.Pages.Students.StudentInput student in Model.Students)
+				{
+					<tr>
+						<td>@student.FullName</td>
+						<td>@student.Email</td>
+						<td>@student.Age</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+	@* @if (Model.Students.Count == 0) {
+		<p>@Model.NoStudents</p>
+	} else {
+		<ul>
+			@foreach (string student in Model.Students) {
+				<li>@student</li>
+			}
+		</ul>
+	} *@
+</div>
