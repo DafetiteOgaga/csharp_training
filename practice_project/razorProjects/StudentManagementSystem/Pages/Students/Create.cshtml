@@ -1,0 +1,70 @@
+
+@page
+@model StudentManagementSystem.Pages.Students.CreateModel
+
+@{
+    ViewData["Title"] = "Register Student";
+}
+
+<div class="container mt-5">
+    <h1>Register a Student</h1>
+
+    @if (Model.Submitted)
+    {
+        <div class="alert alert-success">
+            Student details received successfully!
+        </div>
+
+        <h2>Submitted Details</h2>
+        <p>Name: @Model.Student.FullName</p>
+        <p>Email: @Model.Student.Email</p>
+        <p>Age: @Model.Student.Age</p>
+    }
+
+    <form method="post">
+        <div asp-validation-summary="ModelOnly"
+             class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Student.FullName"
+                   class="form-label"></label>
+
+            <input asp-for="Student.FullName"
+                   class="form-control" />
+
+            <span asp-validation-for="Student.FullName"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Student.Email"
+                   class="form-label"></label>
+
+            <input asp-for="Student.Email"
+                   class="form-control" />
+
+            <span asp-validation-for="Student.Email"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Student.Age"
+                   class="form-label"></label>
+
+            <input asp-for="Student.Age"
+                   type="number"
+                   class="form-control" />
+
+            <span asp-validation-for="Student.Age"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Register Student
+        </button>
+    </form>
+
+    <p class="mt-3">
+        <a href="/Students">Back to Student List</a>
+    </p>
+</div>
