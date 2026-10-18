@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+<div class="container mt-5">
+    <h1>@Model.SchoolName</h1>
+    <p>@Model.WelcomeMessage</p>
+    <i>Located inside @Model.SchoolLocation, @Model.SchoolCountry.</i>
+    <hr/>
+    <h2>Dashboard</h2>
+    <p>Total Students: @Model.SchoolStudents</p>
+    <p>Total Teachers: @Model.SchoolTeachers</p>
+    <p>Today's Date: @DateTime.Now.ToShortDateString()</p>
+    <p>
+        <a href="/Students">View All Students</a>
+    </p>
+</div>
