@@ -1,0 +1,54 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-6">Welcome to Lagos High School</h1>
+    @if (Model.DisplayStudentsDetails.Count == 0) {
+		<p>No students have been registered yet.</p>
+		<a href="/Forms/Register">Register a new student</a>
+    } else {
+        <table class="table">
+			<thead>
+				<tr>
+					<th>S/N</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Dept</th>
+					<th>Email</th>
+					<th>Phone No.</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@* @foreach (StudentRegistrationForm.Pages.Forms.StudentDetails student in Model.DisplayStudentsDetails) *@
+				@for (int i=0; i<Model.DisplayStudentsDetails.Count; i++)
+				{
+					int SerialNumber = i + 1;
+					<tr>
+						<td>@SerialNumber.</td>
+						<td>@Model.DisplayStudentsDetails[i].FirstName</td>
+						<td>@Model.DisplayStudentsDetails[i].LastName</td>
+						<td>@Model.DisplayStudentsDetails[i].Department</td>
+						<td>@Model.DisplayStudentsDetails[i].Email</td>
+						<td>@Model.DisplayStudentsDetails[i].Phone</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<a href="/Forms/Register">Register more students</a>
+    }
+    @* <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+    <p class="mt-5">Number of students registered: @Model.DisplayStudentsDetails.Count</p>
+    @* <p>is submitted? @Model.DisplaySuccess</p> *@
+	@if (Model.DisplaySuccess)
+    {
+        <div class="alert alert-success">
+            @* Student registered successfully! *@
+			@Model.DisplayStudentsDetails[Model.DisplayStudentsDetails.Count-1].FirstName registered successfully!
+        </div>
+        @* <p>@Model.DisplayStudentsDetails[DisplayStudentsDetails.Count].FirstName reistered successfully!</p> *@
+    }
+</div>
