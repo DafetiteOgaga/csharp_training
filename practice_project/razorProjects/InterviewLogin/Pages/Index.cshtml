@@ -1,0 +1,12 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @Model.LoggedInEmail</h1>
+    <a href="/Login/Login">
+        Login @if (@Model.LoggedInEmail=="") {<span>here</span>} else {<span>again</span>}</span>
+    </a>
+</div>
