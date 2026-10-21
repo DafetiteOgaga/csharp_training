@@ -1,0 +1,198 @@
+
+@page
+@model StudentRegistrationForm.Pages.Forms.RegisterStudent
+
+@{
+    ViewData["Title"] = "Student Registration";
+}
+
+<div class="container mt-5">
+	<h1>Student Registration Form</h1>
+
+	<form method="post">
+		<div asp-validation-summary="ModelOnly"
+		class="text-danger"></div>
+
+		<div class="mt-3">
+			<label asp-for="Student.FirstName"
+			class="form-label"></label>
+
+			<input asp-for="Student.FirstName"
+			class="form-control" />
+
+			<span asp-validation-for="Student.FirstName"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.LastName"
+			class="form-label"></label>
+
+			<input asp-for="Student.LastName"
+			class="form-control" />
+
+			<span asp-validation-for="Student.LastName"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.MiddleName"
+			class="form-label"></label>
+
+			<input asp-for="Student.MiddleName"
+			class="form-control" />
+
+			<span asp-validation-for="Student.MiddleName"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Username"
+			class="form-label"></label>
+
+			<input asp-for="Student.Username"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Username"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Password"
+			class="form-label"></label>
+
+			<input asp-for="Student.Password"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Password"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.ConfirmPassword"
+			class="form-label"></label>
+
+			<input asp-for="Student.ConfirmPassword"
+			class="form-control" />
+
+			<span asp-validation-for="Student.ConfirmPassword"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Department"
+			class="form-label"></label>
+
+			<input asp-for="Student.Department"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Department"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.DateOfBirth"
+			class="form-label"></label>
+
+			<input asp-for="Student.DateOfBirth"
+			class="form-control" />
+
+			<span asp-validation-for="Student.DateOfBirth"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Gender"
+			class="form-label"></label>
+
+			<input asp-for="Student.Gender"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Gender"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Email"
+			class="form-label"></label>
+
+			<input asp-for="Student.Email"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Email"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Phone"
+			class="form-label"></label>
+
+			<input asp-for="Student.Phone"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Phone"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Address"
+			class="form-label"></label>
+
+			<input asp-for="Student.Address"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Address"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.City"
+			class="form-label"></label>
+
+			<input asp-for="Student.City"
+			class="form-control" />
+
+			<span asp-validation-for="Student.City"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.State"
+			class="form-label"></label>
+
+			<input asp-for="Student.State"
+			class="form-control" />
+
+			<span asp-validation-for="Student.State"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Country"
+			class="form-label"></label>
+
+			<input asp-for="Student.Country"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Country"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="Student.Nationality"
+			class="form-label"></label>
+
+			<input asp-for="Student.Nationality"
+			class="form-control" />
+
+			<span asp-validation-for="Student.Nationality"
+			class="fst-italic small text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<button class="btn btn-primary" type="submit">
+				Submit
+			</button>
+		</div>
+	</form>
+</div>
