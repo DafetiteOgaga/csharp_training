@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "InterviewLogin/1.0.0": {
+        "runtime": {
+          "InterviewLogin.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "InterviewLogin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
