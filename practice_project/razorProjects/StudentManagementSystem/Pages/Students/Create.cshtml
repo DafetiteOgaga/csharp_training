@@ -23,40 +23,40 @@
 
     <form method="post">
         <div asp-validation-summary="ModelOnly"
-             class="text-danger"></div>
+            class="text-danger"></div>
 
         <div class="mb-3">
             <label asp-for="Student.FullName"
-                   class="form-label"></label>
+                class="form-label"></label>
 
             <input asp-for="Student.FullName"
-                   class="form-control" />
+                class="form-control" />
 
             <span asp-validation-for="Student.FullName"
-                  class="text-danger"></span>
+                class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label asp-for="Student.Email"
-                   class="form-label"></label>
+                class="form-label"></label>
 
             <input asp-for="Student.Email"
-                   class="form-control" />
+                class="form-control" />
 
             <span asp-validation-for="Student.Email"
-                  class="text-danger"></span>
+                class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label asp-for="Student.Age"
-                   class="form-label"></label>
+                class="form-label"></label>
 
             <input asp-for="Student.Age"
-                   type="number"
-                   class="form-control" />
+                type="number"
+                class="form-control" />
 
             <span asp-validation-for="Student.Age"
-                  class="text-danger"></span>
+                class="text-danger"></span>
         </div>
 
         <button type="submit" class="btn btn-primary">
