@@ -1,0 +1,65 @@
+
+@page
+@model NewLoginReg.Pages.Forms.RegisterPage
+
+@{
+	ViewData["Title"] = "Register page";
+}
+
+<div class="container mt-5">
+	<h1>Student Registration.</h1>
+
+	<form method="post">
+		<div class="text-danger"
+		asp-validation-summary="ModelOnly"></div>
+
+		<div class="mt-3">
+			<label class="form-label"
+			asp-for="RegisterProp.FirstName"></label>
+
+			<input class="form-control"
+			asp-for="RegisterProp.FirstName" />
+
+			<span class="text-danger"
+			asp-validation-for="RegisterProp.FirstName"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label"
+			asp-for="RegisterProp.LastName"></label>
+
+			<input class="form-control"
+			asp-for="RegisterProp.LastName" />
+
+			<span class="text-danger"
+			asp-validation-for="RegisterProp.LastName"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label"
+			asp-for="RegisterProp.Age"></label>
+
+			<input class="form-control"
+			asp-for="RegisterProp.Age" />
+
+			<span class="text-danger"
+			asp-validation-for="RegisterProp.Age"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label"
+			asp-for="RegisterProp.Department"></label>
+
+			<input class="form-control"
+			asp-for="RegisterProp.Department" />
+
+			<span class="text-danger"
+			asp-validation-for="RegisterProp.Department"></span>
+		</div>
+
+		<div class="mt-3">
+			<button class="btn btn-primary"
+			type="submit">Submit</button>
+		</div>
+	</form>
+</div>
