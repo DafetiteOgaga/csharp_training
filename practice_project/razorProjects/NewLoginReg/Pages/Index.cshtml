@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 pb-4">Welcome to home @{if (Model.LoginName!="") {<span>@Model.LoginName</span>} else {<span></span>}}</h1>
+
+    @{
+        if (Model.SavedRegistrations.Count > 0) {
+            <h3>Here is a list of registered students:</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>First name</th>
+                        <th>Age</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        for (int i=0; i < Model.SavedRegistrations.Count; i++) {
+                            <tr>
+                                <td>@(i+1)</td>
+                                <td>@Model.SavedRegistrations[i].FirstName</td>
+                                <td>@Model.SavedRegistrations[i].Age</td>
+                                <td>@Model.SavedRegistrations[i].Department</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        } else {
+            <p>No student has been registered yet.</p>
+        }
+    }
+    @* <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+</div>
