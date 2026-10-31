@@ -1,0 +1,43 @@
+
+@page
+@model NewLoginReg.Pages.Forms.LoginPage
+
+@{
+	ViewData["Title"] = "Login Page";
+}
+
+<div class="container mt-5">
+	<h1>Login Here</h1>
+
+	<form method="post">
+		<div class="text-danger"
+		asp-validation-summary="ModelOnly"></div>
+
+		<div class="mt-3">
+			<label asp-for="LoginProp.Email"
+			class="form-label"></label>
+
+			<input asp-for="LoginProp.Email"
+			class="form-control" />
+
+			<span asp-validation-for="LoginProp.Email"
+			class="text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<label asp-for="LoginProp.Password"
+			class="form-label"></label>
+
+			<input asp-for="LoginProp.Password"
+			class="form-control" />
+
+			<span asp-validation-for="LoginProp.Password"
+			class="text-danger"></span>
+		</div>
+
+		<div class="mt-3">
+			<button type="submit"
+			class="btn btn-primary">Submit</button>
+		</div>
+	</form>
+</div>
