@@ -1,0 +1,107 @@
+
+@page
+@model RegistrationModel
+
+@{
+    ViewData["Title"] = "Registration page";
+}
+
+<div class="container">
+	<h1>Registration Form</h1>
+
+	<form method="post">
+		<div class="mt-3">
+			<label class="form-label" asp-for="RegistrationProp.FirstName"></label>
+			<input class="form-control" asp-for="RegistrationProp.FirstName" />
+			<span class="text-danger" asp-validation-for="RegistrationProp.FirstName"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label" asp-for="RegistrationProp.LastName"></label>
+			<input class="form-control" asp-for="RegistrationProp.LastName" />
+			<span class="text-danger" asp-validation-for="RegistrationProp.LastName"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label" asp-for="RegistrationProp.Email"></label>
+			<input class="form-control" asp-for="RegistrationProp.Email" />
+			<span class="text-danger" asp-validation-for="RegistrationProp.Email"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label" asp-for="RegistrationProp.PhoneNo"></label>
+			<input class="form-control" asp-for="RegistrationProp.PhoneNo" />
+			<span class="text-danger" asp-validation-for="RegistrationProp.PhoneNo"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label" asp-for="RegistrationProp.StateOfOrigin"></label>
+			@* <input class="form-control" asp-for="RegistrationProp.StateOfOrigin" /> *@
+			<select class="form-select" asp-for="RegistrationProp.StateOfOrigin"
+					asp-items="Model.StateOptions"
+					id="stateDropdown">
+				<option value="">-- Select State --</option>
+			</select>
+			<span class="text-danger" asp-validation-for="RegistrationProp.StateOfOrigin"></span>
+		</div>
+
+		<div class="mt-3">
+			<label class="form-label" asp-for="RegistrationProp.LGA"></label>
+			@* <input class="form-control" asp-for="RegistrationProp.LGA" /> *@
+			<select class="form-select" asp-for="RegistrationProp.LGA"
+					asp-items="Model.LgaOptions"
+					id="lgaDropdown">
+				<option value="">-- Select LGA --</option>
+			</select>
+			<span class="text-danger" asp-validation-for="RegistrationProp.LGA"></span>
+		</div>
+
+		<div class="mt-3">
+			<button class="btn btn-primary" type="submit">Submit</button>
+		</div>
+	</form>
+</div>
+
+
+<script>
+    const stateDropdown = document.getElementById("stateDropdown");
+    const lgaDropdown = document.getElementById("lgaDropdown");
+
+    stateDropdown.addEventListener("change", async function () {
+        const selectedState = stateDropdown.value;
+
+        // Clear the old LGAs.
+        lgaDropdown.innerHTML =
+            '<option value="">-- Select LGA --</option>';
+
+        // No state selected: leave the LGA dropdown empty.
+        if (!selectedState) {
+            return;
+        }
+
+        const url = new URL(window.location.href);
+        url.search = "";
+        url.searchParams.set("handler", "Lgas");
+        url.searchParams.set("state", selectedState);
+
+        try {
+            const response = await fetch(url.toString());
+
+            if (!response.ok) {
+                throw new Error("Could not load LGAs.");
+            }
+
+            const lgas = await response.json();
+
+            lgas.forEach(function (lga) {
+                const option = document.createElement("option");
+                option.value = lga;
+                option.textContent = lga;
+
+                lgaDropdown.appendChild(option);
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    });
+</script>
