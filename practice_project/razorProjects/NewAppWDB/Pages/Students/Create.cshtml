@@ -1,0 +1,42 @@
+@page
+@model NewAppWDB.Pages.Students.CreateModel
+
+@{
+	ViewData["Title"] = "Register Student";
+}
+
+<h1>Register Student</h1>
+
+@if (!string.IsNullOrEmpty(Model.SubmissionMessage))
+{
+	<div class="alert alert-success">
+		@Model.SubmissionMessage
+	</div>
+}
+<form method="post">
+	<div class="mb-3">
+		<label asp-for="Student.FirstName"class="form-label">First Name</label>
+		<input type="text" asp-for="Student.FirstName" class="form-control" />
+		<span asp-validation-for="Student.FirstName" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Student.LastName"class="form-label">Last Name</label>
+		<input type="text" asp-for=Student.LastName" class="form-control" />
+		<span asp-validation-for="Student.LastName" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="Student.Age"class="form-label">Age</label>
+		<input type="number" asp-for=Student.Age" class="form-control" />
+		<span asp-validation-for="Student.Age" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<button type="submit" class="btn btn-primary">Register</button>
+	</div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
