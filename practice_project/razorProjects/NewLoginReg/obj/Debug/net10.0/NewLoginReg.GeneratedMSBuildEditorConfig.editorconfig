@@ -34,12 +34,28 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/dafetite/alx/csharp_studs/csharp_training/practice_project/razorProjects/NewLoginReg/Pages/Forms/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRm9ybXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/dafetite/alx/csharp_studs/csharp_training/practice_project/razorProjects/NewLoginReg/Pages/Forms/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRm9ybXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/dafetite/alx/csharp_studs/csharp_training/practice_project/razorProjects/NewLoginReg/Pages/Forms/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRm9ybXMvTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/dafetite/alx/csharp_studs/csharp_training/practice_project/razorProjects/NewLoginReg/Pages/Forms/Read.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRm9ybXMvUmVhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/dafetite/alx/csharp_studs/csharp_training/practice_project/razorProjects/NewLoginReg/Pages/Forms/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRm9ybXMvUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/dafetite/alx/csharp_studs/csharp_training/practice_project/razorProjects/NewLoginReg/Pages/Forms/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRm9ybXMvVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/dafetite/alx/csharp_studs/csharp_training/practice_project/razorProjects/NewLoginReg/Pages/Index.cshtml]
