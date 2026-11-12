@@ -1,7 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using NewAppWDB.Data;
+using NewAppWDB.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// self made service (student service)
+builder.Services.AddScoped<IStudentService, StudentService>();
+
+// for sqlite db
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
