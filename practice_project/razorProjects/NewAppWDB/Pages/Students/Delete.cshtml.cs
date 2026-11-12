@@ -2,16 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NewAppWDB.Data;
 using NewAppWDB.Models;
+using NewAppWDB.Interfaces;
 
 namespace NewAppWDB.Pages.Students;
 
 public class DeleteModel : PageModel
 {
+	private readonly IStudentService _studentService;
+	public DeleteModel(IStudentService studentService)
+	{
+		_studentService = studentService;
+	}
 	public Student? Student { get; set; }
 
-	public IActionResult OnGet(int id)
+	public async Task<IActionResult> OnGetAsync(int id)
 	{
-		Student = StudentStore.Students.FirstOrDefault(student => student.Id == id);
+		Student = await _studentService.GetStudentByIdAsync(id);
 
 		if (Student == null)
 		{
@@ -27,12 +33,10 @@ public class DeleteModel : PageModel
 		return Page();
 	}
 
-	public IActionResult OnPost(int id)
+	public async Task<IActionResult> OnPostAsync(int id)
 	{
 		Console.WriteLine($"form ID: {id}");
-		var student = StudentStore.Students.FirstOrDefault(student => student.Id == id);
-		// var student1 = StudentStore.Students.Select(student => student.Id == id);
-		// Console.WriteLine($"student1: {student1}");
+		var student = await _studentService.GetStudentByIdAsync(id);
 
 		if (student == null)
 		{
@@ -41,7 +45,7 @@ public class DeleteModel : PageModel
 			return NotFound();
 		}
 		Console.WriteLine("Removing student record");
-		StudentStore.Students.Remove(student);
+		await _studentService.DeleteStudentAsync(id);
 
 		return RedirectToPage("/Index");
 	}
