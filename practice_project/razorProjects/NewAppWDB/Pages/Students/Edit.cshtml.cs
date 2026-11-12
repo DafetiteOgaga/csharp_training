@@ -2,16 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NewAppWDB.Data;
 using NewAppWDB.Models;
+using NewAppWDB.Interfaces;
 
 namespace NewAppWDB.Pages.Students;
 
 public class EditModel : PageModel
 {
+	private readonly IStudentService _studentService;
+	public EditModel(IStudentService studentService)
+	{
+		_studentService = studentService;
+	}
 	[BindProperty]
 	public Student? Student { get; set; }
-	public IActionResult OnGet(int id)
+	public async Task<IActionResult> OnGetAsync(int id)
 	{
-		Student = StudentStore.Students.FirstOrDefault(student => student.Id == id);
+		Student = await _studentService.GetStudentByIdAsync(id);
 
 		if (Student == null)
 		{
@@ -21,7 +27,7 @@ public class EditModel : PageModel
 		return Page();
 	}
 
-	public IActionResult OnPost()
+	public async Task<IActionResult> OnPostAsync()
 	{
 		if (Student == null)
 		{
@@ -34,15 +40,8 @@ public class EditModel : PageModel
 			return Page();
 		}
 
-		var existingStudent = StudentStore.Students.FirstOrDefault(student => student.Id == Student.Id);
-		if (existingStudent == null)
-		{
-			Console.WriteLine("Student not found (stored user)");
-			return NotFound();
-		}
-		existingStudent.FirstName = Student.FirstName;
-		existingStudent.LastName = Student.LastName;
-		existingStudent.Age = Student.Age;
+		await _studentService.UpdateStudentAsync(Student);
+
 		Console.WriteLine("Update successful");
 
 		return RedirectToPage("/Index");
