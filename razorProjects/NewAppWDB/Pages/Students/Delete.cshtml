@@ -1,0 +1,26 @@
+@page
+@model NewAppWDB.Pages.Students.DeleteModel
+
+@{
+	ViewData["Title"] = "Delete Student";
+}
+
+<div class="container">
+	<h1>Delete Student Record</h1>
+
+	@if (Model.Student != null){
+		<p class="text-danger">Are you sure that you want to delete the record?</p>
+		<p>Name: <strong class="text-danger">@Model.Student.FirstName @Model.Student.LastName</strong></p>
+		<p>Age: @Model.Student.Age</p>
+
+		<form method="post" class="mt-3">
+			<input type="hidden" name="id" value="@Model.Student.Id" />
+
+			<button type="submit" class="btn btn-danger">Yes, Delete Record</button>
+			<a asp-page="/Index" class="btn btn-secondary">
+				Cancel
+			</a>
+		</form>
+	}
+</div>
+@* <p>what? @Model.Student</p> *@
